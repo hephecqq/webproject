@@ -33,7 +33,7 @@ public class CourseDao {
 		} catch (Exception e) {
 			
 		}finally{
-			JDBCTool.release(rs, stmt, conn);
+			JDBCTool.release(rs, ps, conn);
 		}
 		
 		return list;
