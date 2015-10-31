@@ -15,6 +15,8 @@ import com.hephec.model.Course;
 
 @WebServlet("/listAllStudent")
 public class ListAllStudent extends HttpServlet {
+	//一个模块使用同一个Servlet
+	//何时使用重定向和转发技术
 	private static final long serialVersionUID = 1L;
 	CourseDao courseDao=new CourseDao();
 	List<Course> list=courseDao.getAll();
