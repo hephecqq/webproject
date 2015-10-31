@@ -2,11 +2,18 @@ package com.hephec.model;
 
 public class Course {
 
+	private String type;
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	private Integer id;
 	private String name;
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", name=" + name + "]";
+		return "Course [type=" + type + ", id=" + id + ", name=" + name + "]";
 	}
 	public Integer getId() {
 		return id;
