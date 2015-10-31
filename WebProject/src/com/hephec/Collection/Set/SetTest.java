@@ -1,6 +1,8 @@
 package com.hephec.Collection.Set;
 
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.junit.Test;
@@ -8,6 +10,11 @@ import org.junit.Test;
 public class SetTest {
 
 	
+	/**
+	 * equals和hashCode应该一致
+	 * 重写hashCode原则：
+	 * 
+	 * */
 	@Test
 	public void test(){
 		Set set=new HashSet();
@@ -15,12 +22,20 @@ public class SetTest {
 		System.out.println(set.size());
 		
 		set.add(new Person("aa",121));
-		set.add(new Person("aa",121));
-		set.add(new Person("aa",121));
+		set.add(new Person("aa",122));
+		set.add(new Person("aa",1222));
+		set.add(new Person("aa",123123));
+		set.add(new Person("aa",12423));
 		System.out.println(set.size());
 		
+		for (Object object : set) {
+			System.out.println(object);
+		}
 		
-		
+		Iterator it=set.iterator();
+		while(it.hasNext()){
+			System.out.println(it.next());
+		}
 		/**
 		 * Set是Collection的子接口
 		 * Set集合不允许有相同的元素，
@@ -35,8 +50,24 @@ public class SetTest {
 		 * 3.不能保证元素的顺序
 		 * 4.不是线程安全的
 		 * 5.集合元素可以使用null元素
-		 * 
+		 * 6.对于HashSet两个对象通过equals()方法返回true
+		 * 两个对象的hashCode必相等
+		 * LinkedHashSet是HashSet的子类
+		 * 根据元素的hashCode值来决定元素的存储位置，但他们同时使用
+		 * 链表尾符元素的次序，使得元素开起来有序
+		 * 性能低于HashSet，但在迭代方法访问Set里的元素时有很好的性能
+		 * ：LinkedhashSet不允许集合元素重复
 		 * */
+		LinkedHashSet linkedHashSet=new LinkedHashSet();
+		linkedHashSet.add("aa");
+		linkedHashSet.add("bb");
+		linkedHashSet.add("cc");
+		linkedHashSet.add("aa2");
+		linkedHashSet.add("b2b");
+		linkedHashSet.add("c2c");
+		for (Object object : linkedHashSet) {
+			System.out.println(object);
+		}
 		
 	}
 }
