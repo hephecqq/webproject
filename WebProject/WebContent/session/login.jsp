@@ -24,6 +24,11 @@ lastAccessTime<%=session.getLastAccessedTime() %><br>
 	username:<input type="text" name="username" value="<%=username%>"/>
 	<input type="submit" value="提交">
 </form>
-
+<!--
+	 禁用Cookie如何使用Session?
+	利用url重写机制：
+	response.encodeURL("xx");
+ -->
+ <a href="<%=response.encodeURL("login.jsp")%>">重写登录</a>
 </body>
 </html>
