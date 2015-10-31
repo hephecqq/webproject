@@ -55,6 +55,7 @@ public class TreeSetTest {
 		
 		
 	}
+	//定制排序，实现Comparator接口并实现compare(Object o1,Object o2)
 	@Test
 	public void test2(){
 		@SuppressWarnings("unchecked")
