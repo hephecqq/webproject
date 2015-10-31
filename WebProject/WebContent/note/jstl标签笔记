@@ -1,0 +1,121 @@
+1.jstl <c:out>标签的标记<c:out>显示表达式的结果，类似的方式<%=%>效果，与其不同的是标记<c:out>
+可以使用简单的“.”符号来访问属性。例如，要访问customer.address.street
+使用的标签是<c:out value="customer.address.street"/>.
+标记<c:out>可自动转义XML标签，以便他们都不会计算为实际的标签。
+属性:
+标记<c:out>具有以下属性：
+
+属性	描述	必需	默认值
+value	输出的信息	Yes	None
+default	反馈输出的信息	No	body
+escapeXml	True，如果标签转义特殊XML字符	No	true
+---------------------------------------------------------------------------------------------------------
+2.jstl <c:set>标签
+jstl 标签实例代码和用法 - 表达式求值，并使用结果的JavaBean或java.util.Map对象设置一个值。
+<c:set>标记是JSTL的setProperty动作的友好版本。标签是有用的，因为它的表达式求值，并使用结果的JavaBean或java.util.Map对象设置一个值。
+属性:
+<c:set>标记具有以下属性：
+属性
+描述	必需	默认值
+value	保存信息	No	body
+target	变量的名称，其属性应该修改	No	None
+property	要修改的属性	No	None
+var	变量的名称存储信息	No	None
+scope	变量来存储信息的范围	No	Page
+如果指定目标，属性也必须指定。
+----------------------------------------------------------------------------------------------------------
+jstl <c:remove>标签
+jstl 标签实例代码和用法。
+<c:remove>标签删除变量，无论是从指定的范围内或范围内的变量（如果没有指定范围）。这个动作通常是不特别有帮助，但它可以帮助确保一个JSP范围内的资源，它负责清理。
+属性:
+<c:remove>标签具有以下属性：
+属性	描述	必选	默认
+var	删除的变量名称	Yes	None
+scope	要删除变量的范围	No	All scopes
+------------------------------------------------------------------------------------------------------------
+jstl <c:catch>标签
+jstl 标签实例代码和用法。
+<c:catch>标签捕获任何Throwable，发生在它的身上，有选择地公开。简单地用于错误处理，更优雅地处理这个问题。
+属性:
+<c:catch>标签具有以下属性：
+属性	描述	必选	默认
+var	变量的名称保存在java.lang。如果抛出的Throwable在body元素内。	No	None
+--------------------------------------------------------------------------------------------------------
+jstl <c:if>标签
+jstl 标签实例代码和用法。
+<c:if>标签计算表达式，只有当表达式的值为true，则显示其主体内容。
+属性:
+<c:if>标签具有以下属性：
+属性	描述	必需	默认
+test	条件计算	Yes	None
+var	变量名称的存储条件的结果	No	None
+scope	变量的范围的存储条件的结果	No	page
+-------------------------------------------------------------------------------------------------------------------
+jstl <c:import>标签
+jstl 标签实例代码和用法。
+<c:import>标记提供<include>的所有的功能动作，但也可以包含绝对URL。
+例如，允许使用导入标签包含的内容从一个不同的Web站点或FTP服务器。
+属性:
+<c:import>标记具有以下属性：
+属性	描述	必需	默认值
+url	URL检索和导入到页面	Yes	None
+context	/后面的本地Web应用程序的名称	No	目前的应用
+charEncoding	为导入数据使用的字符集	No	ISO-8859-1
+var	变量的名称存储导入的文本	No	Print to page
+scope	变量作用域用于存储导入的文本	No	Page
+varReader	替代变量的名称，暴露的java.io.Reader	No	None
+-----------------------------------------------------------------------------------------------------------
+jstl <c:forEach>标签
+jstl 标签，实例代码和用法。
+存在这些标签嵌入Java的一个很好的选择，让while或do-while循环通过脚本。<c:forEach>标记是常用的标签，因为它遍历对象的集合。
+<c:forTokens>标签是用来打破的字符串令牌和遍历每个标记。
+属性:
+<c:forEach>标记有以下属性:
+属性	描述	必需	Default
+items	Information to loop over	No	None
+begin	Element to start with (0 = first item, 1 = second item, ...)	No	0
+end	Element to end with (0 = first item, 1 = second item, ...)	No	Last element
+step	Process every step items	No	1
+var	Name of the variable to expose the current item	No	None
+varStatus	Name of the variable to expose the loop status	No	None
+<c:forTokens>标签有类似<c:forEach>的属性，除了一个额外的属性delims指定要使用的字符作为分隔符。
+
+属性	描述	Required	Default
+delims	Characters to use as delimiters	Yes	None
+------------------------------------------------------------------------------------------------
+jstl <c:param>标签
+jstl 实例代码和用法。
+<c:param>标签允许适当的URL请求参数到指定的URL和任何必要的URL编码。
+在一个<c:param>标签的name属性表示参数的名称，value属性表示的参数值：
+属性:
+<c:param>标签具有以下属性：
+
+属性	描述	必需	默认值
+name	在URL中设置的请求参数的名称	Yes	None
+value	在URL中设置的请求参数的值	No	Body
+-----------------------------------------------------------------------------------------------
+jstl <c:redirect>标签
+jstl 实例代码和用法。
+<c:redirect>标签将浏览器重定向到一个备用URL提供自动URL重写，它支持上下文相关的URL和支持<c:param>标签。
+属性:
+<c:redirect>标签具有以下属性：
+属性	描述	Required	Default
+url	URL重定向用户的浏览器	Yes	None
+context	/后面的本地Web应用程序的名称	No	当前应用
+--------------------------------------------------------------------------------------------------
+jstl <c:url>标签
+
+jstl 实例代码和用法。
+<c:url>标记格式化成一个字符串格式的URL，并将其存储到变量中。这个标签会在必要时自动执行URL重写。 var属性指定的变量将包含格式化的URL。
+
+JSTL url标签只是response.encodeURL()方法的调用一个替代方法。URL标记提供的唯一的真正的优势是正确的URL编码，包括子param标签指定的任何参数。
+
+属性:
+<c:url>标记具有以下属性：
+
+Attribute	Description	Required	Default
+value	根URL	Yes	None
+context	/后面的本地Web应用程序的名称	No	Current application
+var	变量的名称，暴露处理的URL	No	Print to page
+scope	变量的作用域暴露处理的URL	No	Page
+--------------------------------------------------------------------------------------------------------
