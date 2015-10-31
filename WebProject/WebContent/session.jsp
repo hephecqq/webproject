@@ -32,10 +32,21 @@
  			a->b 从a->b传入一个Session对象
  		且其他页面应经创建了Session对象，则当前jsp页面会返回一个会话的
  		HttpSession对象，而不会创建一个新的HttpSession对象
+ 		session=false表示当前jsp页面禁用session隐含变量
+ 		但可以使用HttpSession对象，对应Servlet而言,若Servlet是客户端访问的第一个WEB应用的资源
+ 		则只有调用了request.getSession()或request.getSession(true)才会创建HttpSession对象
+ 		并不是关闭了浏览器就销毁了session对象
  		
  		2.什么时候销毁Session对象
- 		
- 	*/
+ 			1.直接调用HttpSession的invalidate()方法，使HttpSession失效
+ 			2.超过HttpSession的过期时间也会被销毁
+ 			3.session.getMaxInactiveInterval();//默认以秒为单位
+ 			session.setMaxInactiveIntervale();//设置Session最大失效时间
+ 			还可以在web.xml文件中设置HttpSession的过期时间
+ 			tomcat-config-web.xml文件中设置
+ 			<session-timeout></session-timeout>单位为分钟
+ 			
+ 		*/
  	
  %>
 </body>
