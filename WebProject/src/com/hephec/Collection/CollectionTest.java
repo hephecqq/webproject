@@ -67,9 +67,42 @@ public class CollectionTest {
 		collection.removeAll(collection);
 		collection.clear();
 		System.out.println(collection.size());
+		/**
+		 * 用于检测集合中的元素
+		 * contains():是否包含指定的元素
+		 * containsAll():是否包含指定的一组元素
+		 * isEmpty():
+		 * */
+		System.out.println(collection.contains(p));
+		System.out.println(collection.containsAll(collection2));
+		System.out.println(collection.contains(new Person()));
 		
+		
+		/**
+		 * 其他方法
+		 * toArray:返回集合的数组对象
+		 * toArray(T[] a):
+		 * 
+		 * */
+		collection.add(new Person());
+		collection.add(new Person());
+		collection.add(new Person());
+		collection.add(new Person());
+		collection.add(new Person());
+		Object[] objs=collection.toArray();
+		for (int i = 0; i < objs.length; i++) {
+			System.out.println(objs.toString());
+		}
+		System.out.println(collection.size());
+		/**
+		 * equals（）
+		 * hashCode()方法
+		 * 
+		 * */
+		//先长度然后在比较元素
 		
 	}
+	
 }
 
 
