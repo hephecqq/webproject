@@ -2,7 +2,7 @@ package com.hephec.dao;
 
 import org.junit.Test;
 import java.util.List;
-public class CourseDao {
+public class CourseDap {
 
 	@Test
 	public void test() {
