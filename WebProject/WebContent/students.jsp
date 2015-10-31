@@ -9,8 +9,25 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table border="1">
+	<tr>
+		<td>ID</td>
+		<td>NAME</td>
+		<td>Type</td>
+		<td>Delete</td>
+		<td>Add</td>
+		<td>Update</td>
+	</tr>
 <c:forEach items="${students}" var="stu">
-	${stu}<br/>
+	<tr>
+		<td>${stu.id }</td>
+		<td>${stu.name }</td>
+		<td>${stu.type }</td>
+		<td><a href="${ pageContext.request.contextPath}/listAllServlet/delete=${stu.id}">Delete</a></td>
+		<td><a href="${ pageContext.request.contextPath}/listAllServlet/add=${stu.id}">Add</a>
+		<td><a href="${ pageContext.request.contextPath}/listAllServlet/update=${stu.id }">Update</a></td>
+	</tr>
 </c:forEach>
+</table>
 </body>
 </html>

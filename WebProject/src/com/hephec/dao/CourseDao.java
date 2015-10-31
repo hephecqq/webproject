@@ -38,4 +38,45 @@ public class CourseDao {
 		
 		return list;
 	}
+	
+	public int delete(Integer id){
+		try {
+			conn=JDBCTool.getConnection();
+			String sql="delete from course where id=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			int count=ps.executeUpdate();
+			if(count>0){
+				return count;
+			}
+			
+		} catch (Exception e) {
+			
+		}finally{
+			JDBCTool.release(rs, ps, conn);
+		}
+		return new Integer(-1);
+		
+	}
+	public int add(Course course){
+		try {
+			conn=JDBCTool.getConnection();
+			String sql="insert into course(id,name,type) values(?,?,?)";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, course.getId());
+			ps.setString(2, course.getName());
+			ps.setString(3, course.getType());
+			int count=ps.executeUpdate();
+			if(count>0){
+				return count;
+			}
+			
+		} catch (Exception e) {
+			
+		}finally{
+			JDBCTool.release(rs, ps, conn);
+		}
+		return new Integer(-1);
+		
+	}
 }
