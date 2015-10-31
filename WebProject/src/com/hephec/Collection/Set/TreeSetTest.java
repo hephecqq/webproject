@@ -1,5 +1,9 @@
 package com.hephec.Collection.Set;
 
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
+
 import org.junit.Test;
 
 public class TreeSetTest {
@@ -7,6 +11,33 @@ public class TreeSetTest {
 	//该排序可以定制
 	@Test
 	public void test(){
+		
+		
+		Set set=new TreeSet();
+		//set.add(null);
+		//set.add(new Person());
+		//会发生类型转换异常，空指针异常，和类型转换异常
+		/**1.
+		 * 如使用TreeSet()构造器无参数创建一个TreeSet对象这要求放入一个
+		 * 元素的类必须实现Comparable接口
+		 * 所以在其中不能放入null元素
+		 * 2.
+		 * 
+		 * */
+		//System.err.println(set.size());
+//		set.add("aaab");
+//		set.add("32");
+		//必须放入同样类的对象.否则会发生类型转换异常
+		set.add(new Student("aa",2523));
+		set.add(new Student("aa",213));
+		set.add(new Student("aa",2132));
+		System.out.println(set.size());
+		
+		for (Object object : set) {
+			System.out.println(object);
+		}
+		
+		
 		//定制排序和自然排序
 		
 		/**
@@ -24,4 +55,22 @@ public class TreeSetTest {
 		
 		
 	}
+	@Test
+	public void test2(){
+		@SuppressWarnings("unchecked")
+		TreeSet<Student> set2=new TreeSet<Student>(new Comparator<Student>() {
+
+			@Override
+			public int compare(Student o1, Student o2) {
+				if(o1 instanceof Student&&o1 instanceof Student){
+					Student s1=o1;
+					Student s2=o2;
+					return s1.getGrade()-s2.getGrade();
+				}else{
+					throw new ClassCastException("不是一个Student对象");
+				}
+			}
+		});
+	}
 }
+
