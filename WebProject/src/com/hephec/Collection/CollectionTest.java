@@ -101,6 +101,10 @@ public class CollectionTest {
 		 * */
 		//先长度然后在比较元素
 		
+		//使用增强for循环使用
+		for (Object object : objs) {
+			System.out.println(object);
+		}
 	}
 	
 }
