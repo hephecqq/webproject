@@ -3,7 +3,36 @@ package com.hephec.string;
 import org.junit.Test;
 
 public class StringTest {
-	
+	@Test
+	public void testTransform(){
+		String str="acgaagadftegah";
+		for (int i = 0; i <str.length(); i++) {
+			char ch=str.charAt(i);
+			
+			if(ch>'a'&&ch<'z'){
+				
+				ch=(char) (ch+1);
+			}else if(ch>'A'&&ch<'Z'){
+				ch=(char) (ch+1);
+			}
+			System.out.println(ch);
+		}
+	}
+	@Test
+	public void testEquals(){
+		//比较字符串内容是否相等必须使用equals方法
+		
+	}
+	@Test
+	public void testSplit(){
+		//String类的split方法
+		String str="a-b-b-c-d";
+		String[] values=str.split("-");
+		for (String string : values) {
+			System.out.println(string);
+		}
+				
+	}
 	@Test
 	public void testCharAt(){
 		//chatAt()求某个索引字符
