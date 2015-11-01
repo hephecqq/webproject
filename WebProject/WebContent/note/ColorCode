@@ -1,0 +1,5 @@
+1.创建一个RandomImagenerator.java,该类实现验证码图片的生成
+2.创建Servlet类,RandomImageServlet.java,将生成的验证码输出的页面
+3.创建一个Action类，LoginAction.java,控制登录
+4.创建struts.xml一个web.xml文件
+5.编写页面
