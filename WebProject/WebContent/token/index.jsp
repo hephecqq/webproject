@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="java.util.Date" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -7,9 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="<%=request.getContextPath() %>\tokenServlet" method="post">
+<%
+	String tokenValue=new Date().getTime() + "";
+	session.setAttribute("token", tokenValue);
+%>
+<form action="<%=request.getContextPath() %>/tokenServlet" method="post">
+	<input type="hidden" value="<%=tokenValue%>" name="token">
 	name:<input type="text" name="username"/>
+	
 	<input type="submit" value="提交"/>
+	
 </form>
 </body>
 </html>
