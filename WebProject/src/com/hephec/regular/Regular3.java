@@ -11,7 +11,10 @@ public class Regular3 {
 		//^与字符串开始的地方匹配
 		//$与字符串结束的地方匹配
 		//\匹配一个
-		//i$,^i
+		//i$,^i,\b匹配一个单纯的边界，前面的字符和后面的字符不全是\w
+		//忽略大小写IGNORECASE
+		//SINGLELINE单行模式
+		//MULTILINE多行模式，\a
 		
 	}
 }
