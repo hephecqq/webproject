@@ -1,0 +1,12 @@
+和属性相关的方法：
+1.Object getAttribute(String name):或者指定的属性
+2.Enumeration getAttributeNames():获取所有属性组成的方法
+3.removeAttribute(String name);移除指定的属性
+4.setAttribute(String name,Object value)设置属性
+方法相关：
+哪些对象有这些方法
+pageContext
+request
+session
+application
+都有这些方法
